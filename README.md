@@ -1,6 +1,6 @@
 # EasyThem
 
-creacion de un template necesario con componentes basicos como modal, alert, formularios, contactos,nabvat,progress, etc totalmente creados.
+Creation of a necessary template with basic components such as modal, alert, forms, contacts, nabvat, progress, etc. fully created.
 
 ## Getting Started
 
@@ -11,45 +11,22 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+react, react-dom, material ui
 ```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
 
 ```
-Give the example
+npm install
+```
+```
+npm start
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+### Give an example
 ```
 
 ## Deployment
@@ -72,9 +49,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **ROny cb** - *Mrvalem* - [mrbalem](https://https://github.com/mrbalem)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/mrbalem/EasyTheme/contributors) who participated in this project.
 
 ## License
 
