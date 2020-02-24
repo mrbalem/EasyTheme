@@ -1,25 +1,14 @@
 /** @format */
-import React, { useState } from 'react';
+import React from 'react';
 
 // import material core component
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Button from '@material-ui/core/Button';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import AcUnitIcon from '@material-ui/icons/AcUnit';
-import HomeWorkIcon from '@material-ui/icons/HomeWork';
-import { Fade } from '@material-ui/core';
-import Slide from '@material-ui/core/Slide';
-import AppsIcon from '@material-ui/icons/Apps';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import { Apps, CloudDownload } from '@material-ui/icons';
+
 import Header from './Layout/';
 import HeaderLinks from './Layout/headerlinks';
-
 //component hooks
 
 import Carousel from './Carousel';
@@ -39,6 +28,11 @@ const useStyles = makeStyles(theme => ({
 	menuButton: {
 		marginRight: theme.spacing(2)
 	},
+	icons: {
+		width: '20px',
+		height: '20px',
+		marginRight: '3px'
+	},
 	toolbar: {
 		width: '95%',
 		minHeight: 128,
@@ -53,6 +47,19 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'center',
 		alignContent: 'center',
 		alignSelf: 'flex-end'
+	},
+	dropdownLink: {
+		'&,&:hover,&:focus': {
+			color: 'inherit',
+			textDecoration: 'none',
+			display: 'block',
+			padding: '10px 20px'
+		}
+	},
+	socialIcons: {
+		position: 'relative',
+		fontSize: '20px !important',
+		marginRight: '4px'
 	}
 }));
 
@@ -87,6 +94,76 @@ export default function Topbar(props) {
 		}
 	];
 
+	const buttonNav = [
+		{
+			type: 'custondropdown',
+			name: 'Components',
+			color: 'transparent',
+			icon: Apps,
+			listbuttons: [
+				<a href='/' className={classes.dropdownLink}>
+					All components
+				</a>,
+				<a
+					href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
+					target='_blank'
+					className={classes.dropdownLink}>
+					Documentation
+				</a>
+			]
+		},
+		{
+			type: 'button_blank',
+			href: '',
+			color: 'transparent',
+			icon: <CloudDownload className={classes.icons} />,
+			name: 'Download'
+		},
+		{
+			type: 'button_icon',
+			id: 'instagram-twitter',
+			title: 'siguenos en twitter',
+			href: 'https://twitter.com/CreativeTim?ref=creativetim',
+			color: 'transparent',
+			icon: <i className={classes.socialIcons + ' fab fa-twitter'} />
+		},
+		{
+			type: 'button_icon',
+			id: 'instagram-facebook',
+			title: 'siguenos en facebook',
+			href: 'https://www.facebook.com/CreativeTim?ref=creativetim',
+			color: 'transparent',
+			icon: <i className={classes.socialIcons + ' fab fa-facebook'} />
+		}
+	];
+
+	const buttonNav2 = [
+		{
+			type: 'custondropdown',
+			name: 'Components',
+			color: 'transparent',
+			icon: Apps,
+			listbuttons: [
+				<a href='/' className={classes.dropdownLink}>
+					All components
+				</a>,
+				<a
+					href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
+					target='_blank'
+					className={classes.dropdownLink}>
+					Documentation
+				</a>
+			]
+		},
+		{
+			type: 'button_blank',
+			href: '/#',
+			color: 'transparent',
+			icon: <CloudDownload className={classes.icons} />,
+			name: 'Download'
+		}
+	];
+
 	const whidth = window.screen.width;
 
 	return (
@@ -95,17 +172,17 @@ export default function Topbar(props) {
 				<Toolbar className={classes.toolbar}>
 					{whidth > 500 ? (
 						<div className={classes.title}>
-							<HeaderLinks />
+							<HeaderLinks buttonNav={buttonNav2} />
 						</div>
 					) : null}
 
 					<Header
 						brand='Nevado Store'
-						rightLinks={<HeaderLinks />}
+						rightLinks={<HeaderLinks buttonNav={buttonNav} />}
 						fixed
 						color='transparent'
 						changeColorOnScroll={{
-							height: 400,
+							height: whidth > 500 ? 400 : 200,
 							color: 'dark'
 						}}
 						{...rest}
