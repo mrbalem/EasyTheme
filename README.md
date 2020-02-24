@@ -31,7 +31,7 @@ npm start
 
 ## Authors
 
-* **ROny cb** - *Mrvalem* - [mrbalem](https://https://github.com/mrbalem)
+* **Rony cb** - *Mrvalem* - [mrbalem](https://https://github.com/mrbalem)
 
 See also the list of [contributors](https://github.com/mrbalem/EasyTheme/contributors) who participated in this project.
 
