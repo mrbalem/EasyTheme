@@ -225,9 +225,7 @@ function App() {
 
 export default App;
 ```
-<img src="https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=a6aacc1f-90b8-4f12-af41-df13241158cd" width="500" height="400" />
-
-<img src="https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=a6aacc1f-90b8-4f12-af41-df13241158cd&raw=true" width="200px">
+![eccomers example](https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Captura%20de%20pantalla%20de%202020-02-25%2016-00-49.png?alt=media&token=047bd479-3043-4980-984f-03b9ffafee96)
 
 ## Authors
 
