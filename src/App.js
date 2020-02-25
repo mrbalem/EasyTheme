@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { Main } from './layouts';
-import { Apps, CloudDownload } from '@material-ui/icons';
-import StoreIcon from '@material-ui/icons/Store';
+import { Apps } from '@material-ui/icons';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
@@ -19,22 +18,6 @@ function App() {
 			textDecoration: 'none',
 			display: 'block',
 			padding: '10px 20px'
-		},
-		dropdownItem: {
-			fontSize: '13px',
-			padding: '10px 20px',
-			margin: '0 5px',
-			borderRadius: '2px',
-			position: 'relative',
-			transition: 'all 150ms linear',
-			display: 'block',
-			clear: 'both',
-			textDecoration: 'none',
-			fontWeight: '400',
-			height: 'fit-content',
-			color: '#333',
-			whiteSpace: 'nowrap',
-			minHeight: 'unset'
 		},
 		socialIcons: {
 			position: 'relative',
