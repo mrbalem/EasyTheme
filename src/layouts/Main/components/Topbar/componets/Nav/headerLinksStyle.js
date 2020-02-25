@@ -1,8 +1,8 @@
 /** @format */
 
-import { defaultFont } from '../../../../../assets/jss/material-kird';
+import { defaultFont } from '../../../../../../assets/jss/material-kird';
 
-import tooltip from '../../../../../assets/jss/tooltipsStyle';
+import tooltip from '../../../../../../assets/jss/tooltipsStyle';
 
 const headerLinksStyle = theme => ({
 	list: {

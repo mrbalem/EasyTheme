@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 
 // core components
 
-import buttonStyle from '../../../../assets/jss/buttonStyle';
+import buttonStyle from '../../../../../../assets/jss/buttonStyle';
 
 const makeComponentStyles = makeStyles(() => ({
 	...buttonStyle

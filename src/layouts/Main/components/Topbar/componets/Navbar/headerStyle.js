@@ -12,7 +12,7 @@ import {
 	transition,
 	boxShadow,
 	drawerWidth
-} from '../../../../../assets/jss/material-kird';
+} from '../../../../../../assets/jss/material-kird';
 
 const headerStyle = {
 	appBar: {

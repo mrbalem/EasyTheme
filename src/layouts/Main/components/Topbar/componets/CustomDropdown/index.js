@@ -20,7 +20,7 @@ import Popper from '@material-ui/core/Popper';
 // core components
 import Button from '../CustomButtons/';
 
-import styles from '../../../../assets/jss/customDropdownStyle';
+import styles from '../../../../../../assets/jss/customDropdownStyle';
 
 const useStyles = makeStyles(styles);
 

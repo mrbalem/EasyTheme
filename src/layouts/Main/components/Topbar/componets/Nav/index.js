@@ -15,9 +15,8 @@ import ListItem from '@material-ui/core/ListItem';
 import Tooltip from '@material-ui/core/Tooltip';
 
 // core components
-import CustomDropdown from '../../CustomDropdown/';
-import Button from '../../CustomButtons/';
-import styles from './headerLinksStyle.js';
+import { CustomDropdown, Button } from '../index';
+import styles from './headerLinksStyle';
 
 const useStyles = makeStyles(styles);
 

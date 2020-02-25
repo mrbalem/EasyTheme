@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Sidebar, Topbar, Footer } from './components';
+import { Topbar } from './components';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
@@ -9,7 +9,17 @@ import Container from '@material-ui/core/Container';
 const Main = props => {
 	return (
 		<div>
-			<Topbar />
+			<Topbar
+				NavTop={props.NavTop}
+				NavCenter={props.NavCenter}
+				backgroundImage={props.backgroundImage}
+				colorAppBar={props.colorAppBar}
+				Navbarcolor={props.Navbarcolor}
+				colorNav={props.colorNav}>
+				{/* <Carousel data={data} /> */}
+				{props.contentPreview}
+				{/* {props.children} */}
+			</Topbar>
 			<br />
 			<Container
 				style={{

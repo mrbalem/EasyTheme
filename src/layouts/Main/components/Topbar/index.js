@@ -5,25 +5,34 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
-import { Apps, CloudDownload } from '@material-ui/icons';
+import {
+	primaryColor,
+	infoColor,
+	successColor,
+	warningColor,
+	dangerColor,
+	roseColor
+} from '../../../../assets/jss/material-kird';
 
-import Header from './Layout/';
-import HeaderLinks from './Layout/headerlinks';
+// component core
+import { Nav, Navbar } from './componets/';
+
 //component hooks
-
-import Carousel from './Carousel';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1,
-		padding: '1em',
-		backgroundImage:
-			"url('https://demos.creative-tim.com/material-kit-react/static/media/bg4.199e9ec1.jpg')",
+		//padding: '1em',
 		border: 0,
 		height: '100vh',
 		margin: 0,
 		backgroundSize: 'cover'
 		//width: '80%'
+	},
+	containt: {
+		backgroundSize: 'cover',
+		padding: '1em',
+		height: '95vh'
 	},
 	menuButton: {
 		marginRight: theme.spacing(2)
@@ -64,132 +73,108 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Topbar(props) {
-	const { ...rest } = props;
+	//const { ...rest } = props;
 	const classes = useStyles();
-
-	const data = [
-		{
-			titulo: 'Zapatillas Urbanas Rhisien',
-			precio: 'S/ 249',
-			oferta: 'S/ 229.90 (Oferta)',
-			href: '/jdaskdk',
-			img:
-				'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%201_Mesa%20de%20trabajo%201.png?alt=media&token=48b11720-215a-434a-bdaa-c24e58792d89'
-		},
-		{
-			titulo: 'Zapatos Casuales Nelsonn',
-			precio: 'S/ 229',
-			oferta: 'S/ 220.90 (Oferta)',
-			href: '/jdaskdk',
-			img:
-				'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%202_Mesa%20de%20trabajo%201.png?alt=media&token=b4eed121-cbe8-4f7a-967a-9197be0b7734'
-		},
-		{
-			titulo: 'Zapatos Casuales Jote',
-			precio: 'S/ 269',
-			oferta: 'S/ 250.90 (Oferta)',
-			href: '/jdaskdk',
-			img:
-				'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%204_Mesa%20de%20trabajo%201.png?alt=media&token=960ea8c2-4d40-40a2-87d2-31951114463f'
-		}
-	];
-
-	const buttonNav = [
-		{
-			type: 'custondropdown',
-			name: 'Components',
-			color: 'transparent',
-			icon: Apps,
-			listbuttons: [
-				<a href='/' className={classes.dropdownLink}>
-					All components
-				</a>,
-				<a
-					href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
-					target='_blank'
-					className={classes.dropdownLink}>
-					Documentation
-				</a>
-			]
-		},
-		{
-			type: 'button_blank',
-			href: '',
-			color: 'transparent',
-			icon: <CloudDownload className={classes.icons} />,
-			name: 'Download'
-		},
-		{
-			type: 'button_icon',
-			id: 'instagram-twitter',
-			title: 'siguenos en twitter',
-			href: 'https://twitter.com/CreativeTim?ref=creativetim',
-			color: 'transparent',
-			icon: <i className={classes.socialIcons + ' fab fa-twitter'} />
-		},
-		{
-			type: 'button_icon',
-			id: 'instagram-facebook',
-			title: 'siguenos en facebook',
-			href: 'https://www.facebook.com/CreativeTim?ref=creativetim',
-			color: 'transparent',
-			icon: <i className={classes.socialIcons + ' fab fa-facebook'} />
-		}
-	];
-
-	const buttonNav2 = [
-		{
-			type: 'custondropdown',
-			name: 'Components',
-			color: 'transparent',
-			icon: Apps,
-			listbuttons: [
-				<a href='/' className={classes.dropdownLink}>
-					All components
-				</a>,
-				<a
-					href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
-					target='_blank'
-					className={classes.dropdownLink}>
-					Documentation
-				</a>
-			]
-		},
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <CloudDownload className={classes.icons} />,
-			name: 'Download'
-		}
-	];
-
 	const whidth = window.screen.width;
 
-	return (
-		<div className={classes.root}>
-			<AppBar style={{ background: 'transparent' }}>
-				<Toolbar className={classes.toolbar}>
-					{whidth > 500 ? (
-						<div className={classes.title}>
-							<HeaderLinks buttonNav={buttonNav2} />
-						</div>
-					) : null}
+	const backgroundColor = {
+		primary: {
+			backgroundColor: primaryColor,
+			color: '#FFFFFF',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46)'
+		},
+		info: {
+			backgroundColor: infoColor,
+			color: '#FFFFFF',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(0, 188, 212, 0.46)'
+		},
+		success: {
+			backgroundColor: successColor,
+			color: '#FFFFFF',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(76, 175, 80, 0.46)'
+		},
+		warning: {
+			backgroundColor: warningColor,
+			color: '#FFFFFF',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(255, 152, 0, 0.46)'
+		},
+		danger: {
+			backgroundColor: dangerColor,
+			color: '#FFFFFF',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(244, 67, 54, 0.46)'
+		},
+		rose: {
+			backgroundColor: roseColor,
+			color: '#FFFFFF',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)'
+		},
+		transparent: {
+			backgroundColor: 'transparent',
+			boxShadow: 'none',
+			paddingTop: '25px',
+			color: '#FFFFFF'
+		},
+		dark: {
+			color: '#FFFFFF',
+			backgroundColor: '#212121 ',
+			boxShadow:
+				'0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)'
+		},
+		white: {
+			border: '0',
+			padding: '0.625rem 0',
+			marginBottom: '20px',
+			color: '#555',
+			backgroundColor: '#fff ',
+			boxShadow:
+				'0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)'
+		}
+	};
 
-					<Header
-						brand='Nevado Store'
-						rightLinks={<HeaderLinks buttonNav={buttonNav} />}
-						fixed
-						color='transparent'
-						changeColorOnScroll={{
-							height: whidth > 500 ? 400 : 200,
-							color: 'dark'
-						}}
-						{...rest}
-					/>
-				</Toolbar>
-			</AppBar>
-			<Carousel data={data} />
+	const background = backgroundColor[props.colorAppBar];
+	const backgroundNav = backgroundColor[props.colorNav];
+	return (
+		<div
+			className={classes.root}
+			style={{
+				backgroundImage: `url(${props.backgroundImage})`
+			}}>
+			<div
+				className={classes.containt}
+				style={{
+					backgroundColor: 'rgba(0, 0, 0, 0.7)'
+				}}>
+				<AppBar style={background}>
+					<Toolbar className={classes.toolbar}>
+						{whidth > 500 ? (
+							<div style={backgroundNav} className={classes.title}>
+								<Nav buttonNav={props.NavTop} />
+							</div>
+						) : null}
+
+						<Navbar
+							brand='Nevado Store'
+							rightLinks={<Nav buttonNav={props.NavCenter} />}
+							fixed
+							color={props.Navbarcolor}
+							changeColorOnScroll={{
+								height: whidth > 500 ? 400 : 200,
+								color:
+									props.Navbarcolor == 'transparent'
+										? 'dark'
+										: props.Navbarcolor
+							}}
+						/>
+					</Toolbar>
+				</AppBar>
+				{props.children}
+			</div>
 		</div>
 	);
 }
