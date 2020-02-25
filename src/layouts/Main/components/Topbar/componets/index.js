@@ -1,6 +1,5 @@
 /** @format */
 
-export { default as Carousel } from './Carousel';
 export { default as Button } from './CustomButtons';
 export { default as CustomDropdown } from './CustomDropdown';
 export { default as Nav } from './Nav';

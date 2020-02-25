@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 	containt: {
 		backgroundSize: 'cover',
 		padding: '1em',
-		height: '95vh'
+		height: '95.5vh'
 	},
 	menuButton: {
 		marginRight: theme.spacing(2)

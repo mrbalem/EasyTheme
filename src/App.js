@@ -6,7 +6,7 @@ import { Apps } from '@material-ui/icons';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
-import { Carousel } from './layouts/Main/components/Topbar/componets/';
+import Carousel from './components/Carousel';
 
 function App() {
 	let backgorund =
