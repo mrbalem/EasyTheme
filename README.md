@@ -225,7 +225,7 @@ function App() {
 
 export default App;
 ```
-[img1]: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png "Título alternativo"
+![Imagen 1](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png "Título alternativo")
 
 ## Authors
 
