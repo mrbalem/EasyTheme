@@ -227,7 +227,7 @@ export default App;
 ```
 <img src="https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=a6aacc1f-90b8-4f12-af41-df13241158cd" width="500" height="400" />
 
-<img src="https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=a6aacc1f-90b8-4f12-af41-df13241158cd?raw=true" width="200px">
+<img src="https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=a6aacc1f-90b8-4f12-af41-df13241158cd&raw=true" width="200px">
 
 ## Authors
 
