@@ -226,7 +226,7 @@ function App() {
 export default App;
 ```
 
-![Eccomers example](https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=2aee1f6d-2773-42aa-98f6-1d4f1fb049e3)
+<img src="https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Screen%20record%20from%202020-02-25%2016.16.50.gif?alt=media&token=a6aacc1f-90b8-4f12-af41-df13241158cd" width="500" height="400" />
 
 ## Authors
 
