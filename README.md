@@ -225,7 +225,7 @@ function App() {
 
 export default App;
 ```
-![Imagen 1](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png "Título alternativo")
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 ## Authors
 
