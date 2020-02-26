@@ -6,31 +6,28 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 
+//ejemplo container up
+// position: 'absolute',
+// top: '95%',
+// right: '0%',
+// left: '0%',
+
 const Main = props => {
 	return (
 		<div>
 			<Topbar
-				NavTop={props.NavTop}
 				NavCenter={props.NavCenter}
+				NavTop={props.NavTop}
+				brand={props.brand}
 				backgroundImage={props.backgroundImage}
 				colorAppBar={props.colorAppBar}
 				Navbarcolor={props.Navbarcolor}
 				colorNav={props.colorNav}>
-				{/* <Carousel data={data} /> */}
 				{props.contentPreview}
-				{/* {props.children} */}
 			</Topbar>
 			<br />
-			<Container
-				style={{
-					// position: 'absolute',
-					// top: '95%',
-					// right: '0%',
-					// left: '0%',
-					borderRadius: '1em'
-				}}
-				maxWidth='lg'>
-				<Paper style={{ borderRadius: '0.5em' }} elevation={15}>
+			<Container style={props.style} maxWidth='lg'>
+				<Paper style={{ borderRadius: '0.8em' }} elevation={20}>
 					<Typography
 						component='div'
 						style={{

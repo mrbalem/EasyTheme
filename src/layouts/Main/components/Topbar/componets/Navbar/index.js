@@ -55,7 +55,7 @@ export default function Header(props) {
 				.classList.remove(classes[changeColorOnScroll.color]);
 		}
 	};
-	const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+	const { color, rightLinks, leftLinks, brand, fixed, absolute, Nav } = props;
 	const appBarClasses = classNames({
 		[classes.appBar]: true,
 		[classes[color]]: color,
@@ -98,6 +98,7 @@ export default function Header(props) {
 					}}
 					onClose={handleDrawerToggle}>
 					<div className={classes.appResponsive}>
+						{Nav}
 						{leftLinks}
 						{rightLinks}
 					</div>

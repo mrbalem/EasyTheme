@@ -1,88 +1,130 @@
 /** @format */
-//nfn
 
-import React, { useState, useEffect } from 'react';
-import Slide from '@material-ui/core/Slide';
+import React from 'react';
+// react component for creating beautiful carousel
+import Carousel from 'react-slick';
+
+// @material/core
+import CardMedia from '@material-ui/core/CardMedia';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+// @material-ui/icons
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import IconButton from '@material-ui/core/IconButton';
+// core components
 
-const Carrousel = props => {
-	const [status, setSatus] = useState(true);
-	const [index, setIndex] = useState({
-		action: 'ascender',
-		position: 0
-	});
+import GridContainer from '../Grid/GridContainer';
+import GridItem from '../Grid/GridItem';
 
-	useEffect(() => {
-		setTimeout(() => {
-			setSatus(!status);
-		}, 3000);
+const useStyles = makeStyles({
+	media: {
+		//width: 300,
+		height: 'auto'
+	},
+	paddingLeft: {
+		paddingLeft: '15%',
+		paddingTop: '10%'
+	},
+	'@media (max-width: 600px)': {
+		paddingLeft: {
+			paddingLeft: '3%',
+			paddingTop: '10%'
+		}
+	}
+});
 
-		setTimeout(() => {
-			if (props.data.length !== 1) {
-				if (index.action === 'ascender') {
-					if (index.position + 1 === props.data.length) {
-						setIndex({ position: index.position - 1, action: 'descender' });
-						return;
-					}
-					setIndex(prevs => ({ ...prevs, position: index.position + 1 }));
+export default function SectionCarousel(props) {
+	const classes = useStyles();
+	const settings = {
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		pauseOnHover: true,
+		autoplaySpeed: 2000,
+		cssEase: 'linear',
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: true,
+					dots: true
 				}
-				if (index.action === 'descender') {
-					if (index.position === 0) {
-						setIndex({ position: index.position + 1, action: 'ascender' });
-						return;
-					}
-
-					setIndex(prevs => ({ ...prevs, position: index.position - 1 }));
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
 				}
 			}
-		}, 5000);
-	}, [status]);
+		]
+	};
 
 	return (
 		<div
 			style={{
-				color: '#fff',
 				paddingTop: '15%',
-				display: 'flex',
-				height: '65%'
+				marginLeft: '-10px',
+				marginRight: '-10px',
+				color: '#fff'
 			}}>
-			<Slide in={status} direction='right' timeout={1000}>
-				<div
-					style={{
-						display: 'flex',
-						alignContent: 'center',
-						paddingLeft: '10%',
-						flexDirection: 'column',
-						justifyContent: 'center',
-						width: '50%'
-					}}>
-					<h1 style={{ fontSize: '40px' }}>
-						{props.data[index.position].titulo}
-					</h1>
-					<span style={{ fontSize: '25px' }}>
-						{props.data[index.position].precio}
-					</span>
-					<span style={{ fontSize: '25px' }}>
-						{props.data[index.position].oferta}
-					</span>
-					<span>
-						<IconButton aria-label='search' color='primary'>
-							comprar <ArrowForwardIcon />
-						</IconButton>
-					</span>
-				</div>
-			</Slide>
-			<Slide in={status} direction='left' timeout={1000}>
-				<div
-					style={{
-						width: '50%',
-						backgroundSize: 'cover',
-						backgroundImage: `url(${props.data[index.position].img})`
-					}}></div>
-			</Slide>
+			<Carousel style={{ backgroundColor: 'transparent' }} {...settings}>
+				{props.data.map((ele, index) => (
+					<div key={index}>
+						<GridContainer>
+							<GridItem xs={12} sm={6}>
+								<div className={classes.paddingLeft}>
+									<h1 style={{ fontSize: '40px' }}>{ele.titulo}</h1>
+									<span
+										style={{
+											fontSize: '25px',
+											textDecoration: 'line-through'
+										}}>
+										{ele.precio}
+									</span>
+									<br />
+									<span style={{ fontSize: '25px' }}>{ele.oferta}</span>
+									<br />
+									<br />
+									<span>
+										<Button
+											variant='contained'
+											color='primary'
+											component='span'>
+											Comprar
+											<ArrowForwardIcon style={{ paddingLeft: '0.5em' }} />
+										</Button>
+									</span>
+								</div>
+							</GridItem>
+							<GridItem xs={12} sm={6}>
+								<CardMedia
+									className={classes.media}
+									component='div'
+									title={ele.titulo}>
+									<img
+										src={ele.img}
+										alt={ele.titulo}
+										style={{
+											width: '100%',
+											height: 'auto'
+										}}></img>
+								</CardMedia>
+							</GridItem>
+						</GridContainer>
+					</div>
+				))}
+			</Carousel>
 		</div>
 	);
-};
-
-export default Carrousel;
+}

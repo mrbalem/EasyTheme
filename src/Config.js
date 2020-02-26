@@ -3,7 +3,7 @@ import React from 'react';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
-import Carousel from './components/Carousel';
+import SectionCarousel from './components/Carousel/';
 import { Apps } from '@material-ui/icons';
 import { Main } from './layouts';
 
@@ -159,9 +159,10 @@ const RoutesList = [
 		href: '/',
 		component: (
 			<Main
-				contentPreview={<Carousel data={dataCarousel} />}
-				NavTop={buttonNav2}
-				NavCenter={buttonNav}
+				brand='Nevado store'
+				contentPreview={<SectionCarousel data={dataCarousel} />}
+				NavCenter={buttonNav2}
+				NavTop={buttonNav}
 				colorAppBar='transparent'
 				colorNav='transparent'
 				Navbarcolor='transparent'

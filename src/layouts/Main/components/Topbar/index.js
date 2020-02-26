@@ -1,5 +1,5 @@
 /** @format */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // import material core component
 import AppBar from '@material-ui/core/AppBar';
@@ -56,6 +56,23 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'center',
 		alignContent: 'center',
 		alignSelf: 'flex-end'
+	},
+	'@media (max-width: 959px)': {
+		toolbar: {
+			minHeight: 30
+		},
+		title: {
+			display: 'none'
+		}
+	},
+
+	titlePhone: {
+		flexGrow: 1,
+		textAlign: 'center',
+		display: 'flex',
+		justifyContent: 'center',
+		color: 'transparent',
+		alignContent: 'center'
 	},
 	dropdownLink: {
 		'&,&:hover,&:focus': {
@@ -139,6 +156,7 @@ export default function Topbar(props) {
 
 	const background = backgroundColor[props.colorAppBar];
 	const backgroundNav = backgroundColor[props.colorNav];
+
 	return (
 		<div
 			className={classes.root}
@@ -154,17 +172,17 @@ export default function Topbar(props) {
 					<Toolbar className={classes.toolbar}>
 						{whidth > 500 ? (
 							<div style={backgroundNav} className={classes.title}>
-								<Nav buttonNav={props.NavTop} />
+								{props.NavCenter && <Nav buttonNav={props.NavCenter} />}
 							</div>
 						) : null}
-
 						<Navbar
-							brand='Nevado Store'
-							rightLinks={<Nav buttonNav={props.NavCenter} />}
+							brand={props.brand}
+							rightLinks={<Nav buttonNav={props.NavTop} />}
+							Nav={<Nav buttonNav={props.NavCenter} />}
 							fixed
 							color={props.Navbarcolor}
 							changeColorOnScroll={{
-								height: whidth > 500 ? 400 : 200,
+								height: 200,
 								color:
 									props.Navbarcolor == 'transparent'
 										? 'dark'
