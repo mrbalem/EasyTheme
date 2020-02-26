@@ -32,198 +32,294 @@ npm install
 npm start
 ```
 
-### Give an example
+## File Structure
+
+Within the download you'll find the following directories and files:
+
+```
+material-kit-react
+.
+├── README.md
+├── jsconfig.json
+├── package.-lock.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── manifest.json
+|	└── robots.txt
+└── src
+    ├── App.js
+	├── Config.js
+	├── Routes.js
+	├── index.js
+    ├── assets
+    │    └── jss
+	|		 ├── buttonStyle.js
+	|		 ├── cardBodyStyle.js
+	|		 ├──	cardFooterStyle.js
+	|		 ├── cardHeaderStyle.js
+	|		 ├── cardStyle.js
+	|		 ├──	carouselStyle.js
+	|		 ├── customDropdownStyle.js
+	|		 ├── material-kird.js
+	|		 └── tooltipsStyle.js
+	|
+    ├── components
+    │   ├── Alert
+    │   │   └── index.js.js
+    │   ├── Card
+    │   │   ├── Card.js
+    │   │   ├── CardBody.js
+    │   │   ├── CardFooter.js
+    │   │   └── CardHeader.js
+    │   ├── Carousel
+	|	|	├── Example.js
+    │   │   └── index.js
+    │   ├── Footer
+    │   │   └── index.js
+    │   ├── Grid
+	|	|	├── GridContainer.js
+    │   │   └── GridItem.js
+    │   ├── Modal
+    │   │   └── index.js
+    │   ├── Progress
+    │   │   └── index.js
+    │   ├── SocialMedia
+    │   │   └── index.js
+    │   ├── Footer
+    │   │   └── Footer.js
+    │   ├── Grid
+    │   │   ├── GridContainer.js
+    │   │   └── GridItem.js
+    │   ├── Header
+    │   │   ├── Header.js
+    │   │   └── HeaderLinks.js
+    │   ├── InfoArea
+    │   │   └── InfoArea.js
+    │   ├── NavPills
+    │   │   └── NavPills.js
+    │   ├── Pagination
+    │   │   └── Pagination.js
+    │   ├── Parallax
+    │   │   └── Parallax.js
+    │   ├── Snackbar
+    │   │   └── SnackbarContent.js
+    │   └── Typography
+    │       ├── Danger.js
+    │       ├── Info.js
+    │       ├── Muted.js
+    │       ├── Primary.js
+    │       ├── Quote.js
+    │       ├── Small.js
+    │       ├── Success.js
+    │       └── Warning.js
+    └── views
+        ├── LandingPage
+        │   ├── LandingPage.js
+        │   └── Sections
+        │       ├── ProductSection.js
+        │       ├── TeamSection.js
+        │       └── WorkSection.js
+        ├── LoginPage
+        │   └── LoginPage.js
+        └── ProfilePage
+            └── ProfilePage.js
+```
+
+### Give an example in Config.js
 
 ```js
+/** @format */
 import React from 'react';
-
-//import core material ui
-import { Apps } from '@material-ui/icons';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
-
-// import core proyect
+import SectionCarousel from './components/Carousel/';
+import { Apps } from '@material-ui/icons';
 import { Main } from './layouts';
-import { Carousel } from './layouts/Main/components/Topbar/componets/';
 
-function App() {
-	let backgorund =
-		'https://demos.creative-tim.com/material-kit-pro-react/static/media/clark-street-merc.4e443266.jpg';
+const configData = {
+	backgorund:
+		'https://demos.creative-tim.com/material-kit-pro-react/static/media/clark-street-merc.4e443266.jpg'
+};
 
-	// style for icon and <a>
-	const classes = {
-		dropdownLink: {
-			color: 'inherit',
-			textDecoration: 'none',
-			display: 'block',
-			padding: '10px 20px'
-		},
-		socialIcons: {
-			position: 'relative',
-			fontSize: '20px !important',
-			marginRight: '4px'
-		},
-		icons: {
-			width: '20px',
-			height: '20px',
-			marginRight: '3px'
-		}
-	};
+// Data carrousel example
+const dataCarousel = [
+	{
+		titulo: 'Zapatillas Urbanas Rhisien',
+		precio: 'S/ 249',
+		oferta: 'S/ 229.90 (Oferta)',
+		href: '/jdaskdk',
+		img:
+			'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%201_Mesa%20de%20trabajo%201.png?alt=media&token=48b11720-215a-434a-bdaa-c24e58792d89'
+	},
+	{
+		titulo: 'Zapatos Casuales Nelsonn',
+		precio: 'S/ 229',
+		oferta: 'S/ 220.90 (Oferta)',
+		href: '/jdaskdk',
+		img:
+			'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%202_Mesa%20de%20trabajo%201.png?alt=media&token=b4eed121-cbe8-4f7a-967a-9197be0b7734'
+	},
+	{
+		titulo: 'Zapatos Casuales Jote',
+		precio: 'S/ 269',
+		oferta: 'S/ 250.90 (Oferta)',
+		href: '/jdaskdk',
+		img:
+			'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%204_Mesa%20de%20trabajo%201.png?alt=media&token=960ea8c2-4d40-40a2-87d2-31951114463f'
+	}
+];
 
-	// data for carousel
-	const data = [
-		{
-			titulo: 'Zapatillas Urbanas Rhisien',
-			precio: 'S/ 249',
-			oferta: 'S/ 229.90 (Oferta)',
-			href: '/jdaskdk',
-			img:
-				'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%201_Mesa%20de%20trabajo%201.png?alt=media&token=48b11720-215a-434a-bdaa-c24e58792d89'
-		},
-		{
-			titulo: 'Zapatos Casuales Nelsonn',
-			precio: 'S/ 229',
-			oferta: 'S/ 220.90 (Oferta)',
-			href: '/jdaskdk',
-			img:
-				'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%202_Mesa%20de%20trabajo%201.png?alt=media&token=b4eed121-cbe8-4f7a-967a-9197be0b7734'
-		},
-		{
-			titulo: 'Zapatos Casuales Jote',
-			precio: 'S/ 269',
-			oferta: 'S/ 250.90 (Oferta)',
-			href: '/jdaskdk',
-			img:
-				'https://firebasestorage.googleapis.com/v0/b/nevado-store.appspot.com/o/catalogo_300x200%2FZAPA%204_Mesa%20de%20trabajo%201.png?alt=media&token=960ea8c2-4d40-40a2-87d2-31951114463f'
-		}
-	];
+const classes = {
+	dropdownLink: {
+		color: 'inherit',
+		textDecoration: 'none',
+		display: 'block',
+		padding: '10px 20px'
+	},
+	socialIcons: {
+		position: 'relative',
+		fontSize: '20px !important',
+		marginRight: '4px'
+	},
+	icons: {
+		width: '20px',
+		height: '20px',
+		marginRight: '3px'
+	}
+};
 
-	// buttons nav top
-	const buttonNavTop = [
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <VpnKeyIcon className={classes.icons} />,
-			name: 'Iniciar sesión'
-		},
-		{
-			type: 'button_blank',
-			href: '',
-			color: 'transparent',
-			icon: <LocationOnIcon className={classes.icons} />,
-			name: 'Tiendas'
-		},
-		{
-			type: 'button_icon',
-			id: 'whatsapp-facebook',
-			title: 'Envianos un whatsapp',
-			href: 'https://twitter.com/CreativeTim?ref=creativetim',
-			color: 'transparent',
-			icon: <i className={classes.socialIcons + ' fab fa-whatsapp'} />
-		},
-		{
-			type: 'button_icon',
-			id: 'instagram-facebook',
-			title: 'siguenos en instagran',
-			href: 'https://twitter.com/CreativeTim?ref=creativetim',
-			color: 'transparent',
-			icon: <i className={classes.socialIcons + ' fab fa-instagram'} />
-		},
-		{
-			type: 'button_icon',
-			id: 'instagram-facebook',
-			title: 'siguenos en facebook',
-			href: 'https://www.facebook.com/CreativeTim?ref=creativetim',
-			color: 'transparent',
-			icon: <i className={classes.socialIcons + ' fab fa-facebook'} />
-		}
-	];
+// button nav top
+const buttonNav = [
+	{
+		type: 'button_blank',
+		href: '/#',
+		color: 'transparent',
+		icon: <VpnKeyIcon className={classes.icons} />,
+		name: 'Iniciar sesión'
+	},
+	{
+		type: 'button_blank',
+		href: '',
+		color: 'transparent',
+		icon: <LocationOnIcon className={classes.icons} />,
+		name: 'Tiendas'
+	},
+	{
+		type: 'button_icon',
+		id: 'whatsapp-facebook',
+		title: 'Envianos un whatsapp',
+		href: 'https://twitter.com/CreativeTim?ref=creativetim',
+		color: 'transparent',
+		icon: <i className={classes.socialIcons + ' fab fa-whatsapp'} />
+	},
+	{
+		type: 'button_icon',
+		id: 'instagram-facebook',
+		title: 'siguenos en instagran',
+		href: 'https://twitter.com/CreativeTim?ref=creativetim',
+		color: 'transparent',
+		icon: <i className={classes.socialIcons + ' fab fa-instagram'} />
+	},
+	{
+		type: 'button_icon',
+		id: 'instagram-facebook',
+		title: 'siguenos en facebook',
+		href: 'https://www.facebook.com/CreativeTim?ref=creativetim',
+		color: 'transparent',
+		icon: <i className={classes.socialIcons + ' fab fa-facebook'} />
+	}
+];
 
-	//buttons navbotton
-	const buttonNavBotton = [
-		{
-			type: 'custondropdown',
-			name: 'Componentes',
-			color: 'transparent',
-			icon: Apps,
-			listbuttons: [
-				<a href='/' style={classes.dropdownLink}>
-					COMPOENNRE
-				</a>,
-				<a
-					href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
-					target='_blank'
-					style={classes.dropdownLink}>
-					Documentation
-				</a>
-			]
-		},
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <AccessibilityIcon className={classes.icons} />,
-			name: 'Hombre'
-		},
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <i className={classes.icons + ' fas fa-female'} />,
-			name: 'Mujer'
-		},
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <i className={classes.icons + ' fas fa-baby'} />,
-			name: 'Niños'
-		},
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <i className={classes.icons + ' fas fa-tag'} />,
-			name: 'Promociones'
-		},
-		{
-			type: 'button_blank',
-			href: '/#',
-			color: 'transparent',
-			icon: <i className={classes.icons + ' fas fa-chart-line'} />,
-			name: 'Creciendo juntos'
-		}
-	];
+// button nav center
+const buttonNav2 = [
+	{
+		type: 'custondropdown',
+		name: 'Componentes',
+		color: 'transparent',
+		icon: Apps,
+		listbuttons: [
+			<a href='/' style={classes.dropdownLink}>
+				COMPOENNRE
+			</a>,
+			<a
+				href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
+				target='_blank'
+				style={classes.dropdownLink}>
+				Documentation
+			</a>
+		]
+	},
+	{
+		type: 'button_blank',
+		href: '/#',
+		color: 'transparent',
+		icon: <AccessibilityIcon className={classes.icons} />,
+		name: 'Hombre'
+	},
+	{
+		type: 'button_blank',
+		href: '/#',
+		color: 'transparent',
+		icon: <i className={classes.icons + ' fas fa-female'} />,
+		name: 'Mujer'
+	},
+	{
+		type: 'button_blank',
+		href: '/#',
+		color: 'transparent',
+		icon: <i className={classes.icons + ' fas fa-baby'} />,
+		name: 'Niños'
+	},
+	{
+		type: 'button_blank',
+		href: '/#',
+		color: 'transparent',
+		icon: <i className={classes.icons + ' fas fa-tag'} />,
+		name: 'Promociones'
+	},
+	{
+		type: 'button_blank',
+		href: '/#',
+		color: 'transparent',
+		icon: <i className={classes.icons + ' fas fa-chart-line'} />,
+		name: 'Creciendo juntos'
+	}
+];
+/**
+ *  @brand for logo or name of aplication
+ *  @contentPreview is necesarie for content view title or  personalized component
+ *  @NavTop is necesarie for nav top navigation, recivied a array object
+ *  @NavCenter is necesarie for nav center navigation, recivied a array object
+ *  @colorAppBar background color appbar conten color @supported :  primary, dark, white,info, succes, warning, danger, transparent, rose
+ *  @colorNav bakground color @NavCenter cotent @supported
+ *  @Navbarcolor background color @NavTop content @supported
+ *  @backgroundImage for @Main
+ *  @Main recivied component child for content ...
+ *  @RouteList is a object fro the router [{},{},{},{}]
+ */
 
-	/**
-	 *  @contentPreview is necesarie for content view title or  personalized component
-	 *  @NavTop is necesarie for nav top navigation, recivied a array object
-	 *  @NavCenter is necesarie for nav center navigation, recivied a array object
-	 *  @colorAppBar background color appbar conten color @supported :  primary, dark, white,info, succes, warning, danger, transparent, rose
-	 *  @colorNav bakground color @NavCenter cotent @supported
-	 *  @Navbarcolor background color @NavTop content @supported
-	 *  @backgroundImage for @Main
-	 *  @Main recivied component child for content ...
-	 */
-	return (
-		<div>
+const RouterList = [
+	{
+		href: '/',
+		component: (
 			<Main
-				contentPreview={<Carousel data={data} />}
-				NavTop={buttonNavTop}
-				NavCenter={buttonNavBotton}
+				brand='Nevado store'
+				contentPreview={<SectionCarousel data={dataCarousel} />}
+				NavCenter={buttonNav2}
+				NavTop={buttonNav}
 				colorAppBar='transparent'
 				colorNav='transparent'
 				Navbarcolor='transparent'
-				backgroundImage={backgorund}>
-				<div>my first example content</div>
+				backgroundImage={configData.backgorund}>
+				<div>esto es una prueba</div>
 			</Main>
-		</div>
-	);
-}
+		)
+	}
+];
 
-export default App;
+export { RouterList };
 ```
 
 ![eccomers example](https://firebasestorage.googleapis.com/v0/b/fir-mrvalem.appspot.com/o/Captura%20de%20pantalla%20de%202020-02-25%2016-00-49.png?alt=media&token=047bd479-3043-4980-984f-03b9ffafee96)
