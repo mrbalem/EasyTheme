@@ -37,7 +37,7 @@ npm start
 Within the download you'll find the following directories and files:
 
 ```
-material-kit-react
+easyThem
 .
 ├── README.md
 ├── jsconfig.json
