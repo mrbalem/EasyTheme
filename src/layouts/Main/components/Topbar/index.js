@@ -160,9 +160,13 @@ export default function Topbar(props) {
 	return (
 		<div
 			className={classes.root}
-			style={{
-				backgroundImage: `url(${props.backgroundImage})`
-			}}>
+			style={
+				props.backgroundImage
+					? {
+							backgroundImage: `url(${props.backgroundImage})`
+					  }
+					: { backgroundColor: props.backgroundColor }
+			}>
 			<div
 				className={classes.containt}
 				style={{
@@ -182,7 +186,7 @@ export default function Topbar(props) {
 							fixed
 							color={props.Navbarcolor}
 							changeColorOnScroll={{
-								height: 200,
+								height: 50,
 								color:
 									props.Navbarcolor == 'transparent'
 										? 'dark'

@@ -1,11 +1,24 @@
 /** @format */
 import React from 'react';
+
+// imporot material icons
+import SendIcon from '@material-ui/icons/Send';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import Avatar from '@material-ui/core/Avatar';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
-import SectionCarousel from './components/Carousel/';
+import { Link } from 'react-router-dom';
 import { Apps } from '@material-ui/icons';
+
+// core components
+import SectionCarousel from './components/Carousel/';
+
+// core Layout
 import { Main } from './layouts';
+
+// core views
+
+import Home from './views/Home';
 
 const configData = {
 	backgorund:
@@ -43,7 +56,9 @@ const classes = {
 	dropdownLink: {
 		color: 'inherit',
 		textDecoration: 'none',
-		display: 'block',
+		display: 'flex',
+		alignItems: 'center',
+		whiteSpace: 'pre',
 		padding: '10px 20px'
 	},
 	socialIcons: {
@@ -106,19 +121,14 @@ const buttonNav2 = [
 		color: 'transparent',
 		icon: Apps,
 		listbuttons: [
-			<a href='/' style={classes.dropdownLink}>
-				COMPOENNRE
-			</a>,
-			<a
-				href='https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar'
-				target='_blank'
-				style={classes.dropdownLink}>
-				Documentation
-			</a>
+			<a style={classes.dropdownLink}>hola</a>,
+			<Link to='/#' style={classes.dropdownLink}>
+				<SendIcon fontSize='inherit' /> Documentation
+			</Link>
 		]
 	},
 	{
-		type: 'button_blank',
+		type: 'button_link',
 		href: '/#',
 		color: 'transparent',
 		icon: <AccessibilityIcon className={classes.icons} />,
@@ -159,18 +169,26 @@ const RoutesList = [
 		href: '/',
 		component: (
 			<Main
-				brand='Nevado store'
+				brand={
+					<img
+						width='150'
+						height='100'
+						src='https://firebasestorage.googleapis.com/v0/b/ink-grid.appspot.com/o/edicion%20de%20nevado-27.png?alt=media&token=f347cf7d-81e5-4dd2-a150-a76ba01d9e6f'></img>
+				}
 				contentPreview={<SectionCarousel data={dataCarousel} />}
 				NavCenter={buttonNav2}
 				NavTop={buttonNav}
 				colorAppBar='transparent'
 				colorNav='transparent'
 				Navbarcolor='transparent'
+				style={{ marginTop: '-50px' }}
 				backgroundImage={configData.backgorund}>
-				<div>esto es una prueba</div>
+				<Home />
 			</Main>
 		)
 	}
+
+	// other router list ...
 ];
 
 export { RoutesList };
