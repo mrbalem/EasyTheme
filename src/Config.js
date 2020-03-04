@@ -6,11 +6,15 @@ import SendIcon from '@material-ui/icons/Send';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Avatar from '@material-ui/core/Avatar';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import ChildCareIcon from '@material-ui/icons/ChildCare';
+import PregnantWomanIcon from '@material-ui/icons/PregnantWoman';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
 import { Link } from 'react-router-dom';
 import { Apps } from '@material-ui/icons';
 
 // core components
+import CarouselHome from './views/Home/CarouselHome';
 import SectionCarousel from './components/Carousel/';
 
 // core Layout
@@ -119,7 +123,74 @@ const buttonNav2 = [
 		type: 'custondropdown',
 		name: 'Componentes',
 		color: 'transparent',
+		href: '/hombre',
 		icon: Apps,
+		listbuttonsMovil: [
+			{
+				name: 'calzado',
+				key: 'calzado-hombre',
+				href: '/hombre/calzados',
+				icons: LocalOfferIcon,
+				itents: [
+					{
+						name: 'Trail running',
+						href: '/hombre/calzado/trail-rinning',
+						icons: LocalOfferIcon
+					},
+					{
+						name: 'Running',
+						href: '/hombre/calzado/running',
+						icons: LocalOfferIcon
+					},
+					{
+						name: 'Trekking',
+						href: '/hombre/calzado/trekking',
+						icons: LocalOfferIcon
+					},
+					{
+						name: 'Botas',
+						href: '/hombre/calzado/botas',
+						icons: LocalOfferIcon
+					}
+				]
+			},
+			{
+				name: 'Indumentaria',
+				key: 'indumentaria-hombre',
+				href: '/hombre/indumentaria',
+				icons: LocalOfferIcon,
+				itents: [
+					{
+						name: 'Casacas',
+						href: '/hombre/indumentaria/casacas',
+						icons: LocalOfferIcon
+					},
+					{
+						name: 'Camisas & Polos',
+						href: '/hombre/indumentaria/camisas-polos',
+						icons: LocalOfferIcon
+					}
+				]
+			},
+			{
+				name: 'Accesorios',
+				key: 'accesorios-hombre',
+				href: '/hombre/accesorios/hombre',
+				icons: LocalOfferIcon,
+				itents: [
+					{
+						name: 'Running',
+						href: '/hombre/accesorios/running',
+						icons: LocalOfferIcon
+					},
+					{
+						name: 'Trekking',
+						href: '/hombre/accesorios/trekking',
+						icons: LocalOfferIcon
+					}
+				]
+			}
+		],
 		listbuttons: [
 			<a style={classes.dropdownLink}>hola</a>,
 			<Link to='/#' style={classes.dropdownLink}>
@@ -128,31 +199,31 @@ const buttonNav2 = [
 		]
 	},
 	{
-		type: 'button_link',
+		type: 'custondropdown',
+		name: 'HOMBRE',
 		href: '/#',
 		color: 'transparent',
-		icon: <AccessibilityIcon className={classes.icons} />,
-		name: 'Hombre'
+		icon: AccessibilityIcon,
+		listbuttons: <div>hola mundo cruel</div>
 	},
 	{
-		type: 'button_blank',
-		href: '/#',
+		type: 'custondropdown',
 		color: 'transparent',
-		icon: <i className={classes.icons + ' fas fa-female'} />,
-		name: 'Mujer'
+		icon: PregnantWomanIcon,
+		name: 'Mujer',
+		listbuttons: <div>hola mundo cruel</div>
 	},
 	{
-		type: 'button_blank',
-		href: '/#',
+		type: 'custondropdown',
 		color: 'transparent',
-		icon: <i className={classes.icons + ' fas fa-baby'} />,
-		name: 'Niños'
+		icon: ChildCareIcon,
+		name: 'Niños',
+		listbuttons: <div>hola mundo cruel</div>
 	},
 	{
-		type: 'button_blank',
-		href: '/#',
+		type: 'custondropdown',
 		color: 'transparent',
-		icon: <i className={classes.icons + ' fas fa-tag'} />,
+		icon: LocalOfferIcon,
 		name: 'Promociones'
 	},
 	{
@@ -175,13 +246,13 @@ const RoutesList = [
 						height='100'
 						src='https://firebasestorage.googleapis.com/v0/b/ink-grid.appspot.com/o/edicion%20de%20nevado-27.png?alt=media&token=f347cf7d-81e5-4dd2-a150-a76ba01d9e6f'></img>
 				}
-				contentPreview={<SectionCarousel data={dataCarousel} />}
+				contentPreview={<CarouselHome data={dataCarousel} />}
 				NavCenter={buttonNav2}
 				NavTop={buttonNav}
 				colorAppBar='transparent'
 				colorNav='transparent'
 				Navbarcolor='transparent'
-				style={{ marginTop: '-50px' }}
+				style={{ marginTop: '50px' }}
 				backgroundImage={configData.backgorund}>
 				<Home />
 			</Main>

@@ -22,6 +22,7 @@ const useStyles = makeStyles(styles);
 
 export default function Header(props) {
 	const classes = useStyles();
+	const [MenuLineal, setMenuLineal] = React.useState(false);
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	React.useEffect(() => {
 		if (props.changeColorOnScroll) {
@@ -46,6 +47,15 @@ export default function Header(props) {
 			document.body
 				.getElementsByTagName('header')[0]
 				.classList.add(classes[changeColorOnScroll.color]);
+			setMenuLineal(true);
+			let navcenter = document.getElementById('navcenter');
+			if (navcenter) {
+				navcenter.style.display = 'none';
+			}
+			let toolbar = document.getElementById('toolbar');
+			if (toolbar) {
+				toolbar.style.minHeight = '60px';
+			}
 		} else {
 			document.body
 				.getElementsByTagName('header')[0]
@@ -53,9 +63,27 @@ export default function Header(props) {
 			document.body
 				.getElementsByTagName('header')[0]
 				.classList.remove(classes[changeColorOnScroll.color]);
+			let navcenter = document.getElementById('navcenter');
+			if (navcenter) {
+				navcenter.style.display = 'block';
+			}
+			let toolbar = document.getElementById('toolbar');
+			if (toolbar) {
+				toolbar.style.minHeight = '126px';
+			}
+			setMenuLineal(false);
 		}
 	};
-	const { color, rightLinks, leftLinks, brand, fixed, absolute, Nav } = props;
+	const {
+		color,
+		rightLinks,
+		leftLinks,
+		brand,
+		fixed,
+		absolute,
+		NewMenu,
+		Nav
+	} = props;
 	const appBarClasses = classNames({
 		[classes.appBar]: true,
 		[classes[color]]: color,
@@ -82,7 +110,7 @@ export default function Header(props) {
 					)}
 				</div>
 				<Hidden smDown implementation='css'>
-					{rightLinks}
+					{MenuLineal ? NewMenu : rightLinks}
 				</Hidden>
 				<Hidden mdUp>
 					<IconButton
@@ -131,7 +159,6 @@ Header.propTypes = {
 	]),
 	rightLinks: PropTypes.node,
 	leftLinks: PropTypes.node,
-	brand: PropTypes.string,
 	fixed: PropTypes.bool,
 	absolute: PropTypes.bool,
 	// this will cause the sidebar to change the color from

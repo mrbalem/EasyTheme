@@ -8,12 +8,10 @@ import PropTypes from 'prop-types';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Paper from '@material-ui/core/Paper';
 import Grow from '@material-ui/core/Grow';
-import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import Popper from '@material-ui/core/Popper';
 
@@ -52,24 +50,16 @@ export default function CustomDropdown(props) {
 		dropdownList,
 		buttonProps,
 		dropup,
-		dropdownHeader,
 		caret,
-		hoverColor,
 		left,
-		rtlActive,
-		noLiPadding
+		rtlActive
 	} = props;
 	const caretClasses = classNames({
 		[classes.caret]: true,
 		[classes.caretActive]: Boolean(anchorEl),
 		[classes.caretRTL]: rtlActive
 	});
-	const dropdownItem = classNames({
-		[classes.dropdownItem]: true,
-		[classes[hoverColor + 'Hover']]: true,
-		[classes.noLiPadding]: noLiPadding,
-		[classes.dropdownItemRTL]: rtlActive
-	});
+
 	let icon = null;
 	switch (typeof buttonIcon) {
 		case 'object':
@@ -83,7 +73,7 @@ export default function CustomDropdown(props) {
 			break;
 	}
 	return (
-		<div>
+		<div onMouseLeave={handleClose} onMouseEnter={handleClick}>
 			<div>
 				<Button
 					aria-label='Notifications'
@@ -125,33 +115,11 @@ export default function CustomDropdown(props) {
 						}>
 						<Paper className={classes.dropdown}>
 							<ClickAwayListener onClickAway={handleCloseAway}>
-								<MenuList role='menu' className={classes.menuList}>
-									{dropdownHeader !== undefined ? (
-										<MenuItem
-											onClick={() => handleClose(dropdownHeader)}
-											className={classes.dropdownHeader}>
-											{dropdownHeader}
-										</MenuItem>
-									) : null}
-									{dropdownList.map((prop, key) => {
-										if (prop.divider) {
-											return (
-												<Divider
-													key={key}
-													onClick={() => handleClose('divider')}
-													className={classes.dropdownDividerItem}
-												/>
-											);
-										}
-										return (
-											<MenuItem
-												key={key}
-												onClick={() => handleClose(prop)}
-												className={dropdownItem}>
-												{prop}
-											</MenuItem>
-										);
-									})}
+								<MenuList
+									tabIndex='none'
+									role='menu'
+									className={classes.menuList}>
+									{dropdownList}
 								</MenuList>
 							</ClickAwayListener>
 						</Paper>
@@ -179,10 +147,10 @@ CustomDropdown.propTypes = {
 	]),
 	buttonText: PropTypes.node,
 	buttonIcon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-	dropdownList: PropTypes.array,
+	dropdownList: PropTypes.node,
 	buttonProps: PropTypes.object,
 	dropup: PropTypes.bool,
-	dropdownHeader: PropTypes.node,
+	//dropdownHeader: PropTypes.node,
 	rtlActive: PropTypes.bool,
 	caret: PropTypes.bool,
 	left: PropTypes.bool,

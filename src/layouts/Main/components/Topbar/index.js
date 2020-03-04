@@ -15,7 +15,7 @@ import {
 } from '../../../../assets/jss/material-kird';
 
 // component core
-import { Nav, Navbar } from './componets/';
+import { Nav, Navbar, NestedList } from './componets/';
 
 //component hooks
 
@@ -173,16 +173,28 @@ export default function Topbar(props) {
 					backgroundColor: 'rgba(0, 0, 0, 0.7)'
 				}}>
 				<AppBar style={background}>
-					<Toolbar className={classes.toolbar}>
+					<Toolbar id='toolbar' className={classes.toolbar}>
 						{whidth > 500 ? (
 							<div style={backgroundNav} className={classes.title}>
-								{props.NavCenter && <Nav buttonNav={props.NavCenter} />}
+								{props.NavCenter && (
+									<div id='navcenter'>
+										{' '}
+										<Nav buttonNav={props.NavCenter} />{' '}
+									</div>
+								)}
 							</div>
 						) : null}
 						<Navbar
 							brand={props.brand}
+							NewMenu={
+								<Nav
+									buttonNav={props.NavCenter.filter(
+										(e, index) => index !== 0 && index !== 5
+									).concat(props.NavTop)}
+								/>
+							}
 							rightLinks={<Nav buttonNav={props.NavTop} />}
-							Nav={<Nav buttonNav={props.NavCenter} />}
+							Nav={<NestedList />}
 							fixed
 							color={props.Navbarcolor}
 							changeColorOnScroll={{
