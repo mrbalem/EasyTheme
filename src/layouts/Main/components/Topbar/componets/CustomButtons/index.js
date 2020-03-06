@@ -80,7 +80,7 @@ RegularButton.propTypes = {
 	link: PropTypes.bool,
 	justIcon: PropTypes.bool,
 	children: PropTypes.node,
-	className: PropTypes.string
+	//className: PropTypes.string
 };
 
 export default RegularButton;

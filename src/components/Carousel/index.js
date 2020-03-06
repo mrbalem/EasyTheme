@@ -1,11 +1,15 @@
 /** @format */
 
 import React from 'react';
+import PropTypes from 'prop-types'
 // react component for creating beautiful carousel
 import Carousel from 'react-slick';
 
 export default function SectionCarousel(props) {
-	const settings = {
+
+	const {stylePadre, styleCarousel, settings} = props
+
+	const settingsDefault =  !settings ? {
 		infinite: true,
 		speed: 500,
 		slidesToShow: 1,
@@ -39,19 +43,25 @@ export default function SectionCarousel(props) {
 				}
 			}
 		]
-	};
+	} : settings;
 
 	return (
 		<div
-			style={{
+			style={!stylePadre ? {
 				paddingTop: '15%',
 				marginLeft: '-10px',
 				marginRight: '-10px',
 				color: '#fff'
-			}}>
-			<Carousel style={{ backgroundColor: 'transparent' }} {...settings}>
+			} : stylePadre}>
+			<Carousel style={ !styleCarousel ? { backgroundColor: 'transparent' } : styleCarousel} {...settingsDefault}>
 				{props.children}
 			</Carousel>
 		</div>
 	);
+}
+
+SectionCarousel.prototype = {
+	stylePadre: PropTypes.object,
+	styleCarousel: PropTypes.object,
+	settings: PropTypes.object
 }
